@@ -1,0 +1,140 @@
+
+/* result section code */
+.result-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.result-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #e91e63;
+  letter-spacing: 1px;
+}
+
+.result-images {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.circle-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #e91e63;
+  transition: transform 0.3s;
+}
+
+.circle-preview:hover {
+  transform: scale(1.05);
+}
+
+#resultText {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  background: #fce4ec;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .result-images {
+    gap: 20px;
+  }
+
+  .circle-preview {
+    width: 90px;
+    height: 90px;
+  }
+
+  #resultText {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
+.result-section a {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.result-section a button {
+  background-color: #ff4d88;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+
+.result-section a button:hover {
+  background-color: #e60073;
+  transform: scale(1.05);
+}
+@media screen and (max-width: 600px) {
+  .result-section a button {
+    width: 80%;
+    font-size: 0.95rem;
+  }
+}
+
+.share-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#shareBtn {
+  background-color: #ff4081;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 105, 135, 0.3);
+  transition: background 0.3s;
+}
+
+#shareBtn:hover {
+  background-color: #e91e63;
+}
+
+.share-options {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.share-options a {
+  display: block;
+  margin: 5px 0;
+  color: #ff4081;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.share-options a:hover {
+  text-decoration: underline;
+}
+
+.share-options.visible {
+  display: flex;
+}

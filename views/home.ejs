@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💖 Love Calculator 💖</title>
+  <link rel="stylesheet" href="style/style.css" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>💘 Love Calculator 💘</h1>
+  <form action="/" method="POST" enctype="multipart/form-data"  onsubmit="showResultSection(event)">
+  <label>Your Name:</label>
+  <input type="text" name="bname" required />
+
+  <label>Your Photo:</label>
+<div class="circle-upload">
+  <label for="boyimage">
+    <img id="boyPreview" src="/default-boy.png" alt="Boy Image" />
+    <input type="file" name="boyimage" id="boyimage" accept="image/*" onchange="previewImage(event, 'boyPreview')" />
+  </label>
+</div>
+
+
+  <label>Partner's Name:</label>
+  <input type="text" name="gname" required />
+
+  <label>Partner's Photo:</label>
+  <div class="circle-upload">
+  <label for="girlimage">
+    <img id="girlPreview" src="/default-girl.png" alt="Girl Image" />
+    <input type="file" name="girlimage" id="girlimage" accept="image/*" onchange="previewImage(event, 'girlPreview')" />
+  </label>
+</div>
+
+
+  <button type="submit">💓 Calculate Love 💓</button>
+</form>
+  </div>
+</body>
+<script>
+function previewImage(event, id) {
+  const reader = new FileReader();
+  reader.onload = function () {
+    document.getElementById(id).src = reader.result;
+
+    // Also update result preview images (if available)
+    if (id === 'boyPreview') document.getElementById('boyResult').src = reader.result;
+    if (id === 'girlPreview') document.getElementById('girlResult').src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+
+</script>
+
+
+</html>

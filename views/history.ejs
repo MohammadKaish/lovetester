@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Test History</title>
+  <link rel="stylesheet" href="/style/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8cdda, #f88aa3);
+      padding: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(255, 105, 135, 0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #ff4081;
+      margin-bottom: 2rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background-color: #ffe4ec;
+      color: #d81b60;
+    }
+    tr:hover {
+      background-color: #fff0f5;
+    }
+    .circle-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ff66a3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💕 Love Test History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Boy</th>
+          <th>Girl</th>
+          <th>Boy Image</th>
+          <th>Girl Image</th>
+          <th>Score (%)</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% history.forEach(historys => { %>
+         
+            <tr>
+                <td><%= historys.boyname %></td>
+                <td><%= historys.girlname %></td>
+                <td><img src="<%= historys.boyimages %>" class="circle-img" alt="Boy"></td>
+                <td><img src="<%= historys.girlimages %>" class="circle-img" alt="Girl"></td>
+                <td><%= historys.lovepercentages %>%</td>
+                <td><%= new Date(historys.createdAt).toLocaleString() %></td>
+            </tr>
+            
+            <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

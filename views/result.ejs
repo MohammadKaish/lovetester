@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/result.css">
+</head>
+<body>
+   <div class="result-section visible">
+   <h2>💑 Love Result</h2>
+
+   <div class="result-images">
+    <img id="boyResult" class="circle-preview" src="<%= boyImageBase64 ? boyImageBase64 : '/default-boy.png' %>" alt="Boy" />
+    <img id="girlResult" class="circle-preview" src="<%= girlImageBase64 ? girlImageBase64 : '/default-girl.png' %>" alt="Girl" />
+   </div>
+ 
+   <p id="resultText">
+    🎉 Congratulations Mr. <span id="boyName"><%= body.bname %> </span> and Ms. <span id="girlName"><%= body.gname %></span>,<br>
+    your love score is <strong><span id="loveScore"><%= percentage %></span>%</strong> 💖
+   </p>
+   <a href="/"><button>try again</button></a>
+</div>
+ <div class="share-container">
+   <button id="shareBtn">🔗 Share Result</button>
+
+   <div id="shareOptions" class="share-options hidden">
+    <a id="copyLink" href="#">📋 Copy Link</a>
+    <a id="whatsappShare" target="_blank">💬 WhatsApp</a>
+    <a id="facebookShare" target="_blank">📘 Facebook</a>
+    <a id="twitterShare" target="_blank">🐦 Twitter</a>
+   </div>
+   </div>
+
+</body>
+<script>
+  const shareBtn = document.getElementById('shareBtn');
+  const shareOptions = document.getElementById('shareOptions');
+
+  shareBtn.addEventListener('click', () => {
+    shareOptions.classList.toggle('visible');
+
+    const pageUrl = window.location.href;
+    const text = "Check out our love result! ❤️";
+
+    document.getElementById('copyLink').onclick = (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(pageUrl);
+      alert('Link copied to clipboard!');
+    };
+
+    document.getElementById('whatsappShare').href =
+      `https://wa.me/?text=${encodeURIComponent(text + ' ' + pageUrl)}`;
+
+    document.getElementById('facebookShare').href =
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+
+    document.getElementById('twitterShare').href =
+      `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(text)}`;
+  });
+</script>
+
+</html>
